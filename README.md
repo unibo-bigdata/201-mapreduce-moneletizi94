@@ -20,7 +20,7 @@ The new way:
 
 - Pull this assignment's code
 - Compile with ```./gradlew``` (remember to set the Java version depending on where you intend to run the job)
-- Move the jar into the virtual machine (simple copy/paste works) or into your cluster machine (use WinSCP)
+- Move the jar into the virtual machine (simple copy/paste works) or into your cluster machine (use WinSCP or simply SCP from command line)
 
 To run the job, use ```hadoop jar <jarFile> <MainClass> <inputDir> <outputDir> [params]```, where
 
