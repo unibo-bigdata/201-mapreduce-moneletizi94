@@ -35,7 +35,7 @@ To run the job, use ```hadoop jar <jarFile> <MainClass> <inputDir> <outputDir> [
 
 Goal: modify the source code of the WordCount job to add the use of the Combiner; try out the WordLengthCount
 
-Compile and run the job on the capra and divinacommedia datasets. To check the output use ```hdfs dfs -cat mapreduce/output/* | head -n 30```. Try to answer the following questions.
+Compile and run the WordCount job on the capra and divinacommedia datasets. To check the output use ```hdfs dfs -cat mapreduce/output/* | head -n 30```. Try to answer the following questions.
 
 - How much time does it take to run the jobs?
 - How many mappers and reducers have been instantiated?
@@ -51,13 +51,11 @@ Run the job and verify the output as above.
 
 ## 201-3 Testing combiners
 
-Goal: modify the source code in package exercise3 to try out combiners. The dataset for this exercise is ```weather-sample```.
+Goal: check and try the source code of the MaxTemperature and AvgTemperature jobs in package exercise3. The dataset for this exercise is ```weather-sample```.
 
-- Add a combiner to the existing job
-  - Notice: the combiner is implemented as a reducer, but its output must be of the same type of the map output
-  - How does the performance improve?
-- Modify the job to get the average temperature in each month of each year
-  - Which combiner strategy can we adopt (if any)?
+- Notice: the combiner is implemented as a reducer, but its output must be of the same type of the map output
+- How does the performance change with/without combiner?
+- Which combiner strategy can we adopt (if any) for the AvgTemperature job?
 
 ## 201-4 AverageWordLength and InvertedIndex 
 
