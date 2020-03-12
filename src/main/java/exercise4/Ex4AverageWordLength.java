@@ -23,14 +23,6 @@ public class Ex4AverageWordLength {
 
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
 			//TODO mapper code
-			
-			StringTokenizer itr = new StringTokenizer(value.toString());
-			while (itr.hasMoreTokens()) {
-				word.set(itr.nextToken());
-				firstLetter.set(word.toString().substring(0, 1));
-				wordLength.set(word.getLength());
-				context.write(firstLetter, wordLength);
-			}
 		}
 	}
 
@@ -39,13 +31,6 @@ public class Ex4AverageWordLength {
 		public void reduce(Text key, Iterable<IntWritable> values, Context context)
 				throws IOException, InterruptedException {
 			//TODO reducer code
-			
-			double tot = 0, count = 0;
-			for (IntWritable val : values) {
-				count++;
-				tot += (double) val.get();
-			}
-			context.write(key, new DoubleWritable(tot / count));
 		}
 	}
 

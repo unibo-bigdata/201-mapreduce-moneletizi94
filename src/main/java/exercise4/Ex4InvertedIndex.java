@@ -22,13 +22,6 @@ public class Ex4InvertedIndex {
 
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
 			//TODO mapper code
-			
-			StringTokenizer itr = new StringTokenizer(value.toString());
-			while (itr.hasMoreTokens()) {
-				word.set(itr.nextToken());
-				context.write(word, (LongWritable) key);
-				System.out.println(word + ": " + key);
-			}
 		}
 	}
 
@@ -40,12 +33,6 @@ public class Ex4InvertedIndex {
 			TreeSet<Long> offsets = new TreeSet<Long>();
 
 			//TODO reducer code
-			
-			for (LongWritable val : values) {
-				offsets.add(val.get());
-			}
-
-			context.write(key, new Text(offsets.toString()));
 		}
 	}
 
