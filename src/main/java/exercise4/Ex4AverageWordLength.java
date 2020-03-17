@@ -24,9 +24,10 @@ public class Ex4AverageWordLength {
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
 			StringTokenizer itr = new StringTokenizer(value.toString());
 			while (itr.hasMoreTokens()) {
-				word.set(itr.nextToken());
-				firstLetter.set(String.valueOf(word.charAt(0)));
-				wordLength.set(word.getLength());
+				String wordToken = itr.nextToken();
+				word.set(wordToken);
+				firstLetter.set(wordToken.substring(0,1));
+				wordLength.set(wordToken.length());
 				context.write(firstLetter, wordLength);
 			}
 		}
