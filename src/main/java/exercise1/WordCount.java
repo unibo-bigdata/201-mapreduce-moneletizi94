@@ -66,7 +66,8 @@ public class WordCount {
 				job.setNumReduceTasks(Integer.parseInt(args[2]));
 			}
 		}
-		
+
+		job.setCombinerClass(IntSumReducer.class);
 		job.setReducerClass(IntSumReducer.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
